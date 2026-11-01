@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoNova Waste Management Company | A Cleaner Ghana, A Greener Future</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            DEFAULT: '#064E3B',
+                            dark: '#022C22',
+                            light: '#047857'
+                        },
+                        emerald: {
+                            DEFAULT: '#059669',
+                            light: '#10B981',
+                            pale: '#D1FAE5'
+                        },
+                        slateCustom: {
+                            DEFAULT: '#334155',
+                            light: '#64748B',
+                            bg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                        title: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #334155;
+            background-color: #F8FAFC;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .brand-title {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* Custom smooth modal transitions */
+        .modal {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-slateCustom-bg text-slateCustom antialiased selection:bg-emerald-pale selection:text-forest-dark">
+
+    <!-- Top Bar for Quick Contact -->
+    <div class="bg-forest-dark text-white text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <span><i class="fa-solid fa-location-dot text-emerald-light mr-1.5"></i> No. 32 Odonkor Street, Accra New Town, Ghana</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-envelope text-emerald-light mr-1.5"></i> EcoNovaWasteManagement@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:+233596165624" class="hover:text-emerald-light transition"><i class="fa-solid fa-phone text-emerald-light mr-1"></i> +233 59 616 5624</a>
+                <a href="https://wa.me/233596165624" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white px-2.5 py-1 rounded text-xs font-semibold flex items-center gap-1 transition">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-forest rounded-xl flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-recycle text-2xl text-emerald-light"></i>
+                    </div>
+                    <div>
+                        <span class="brand-title text-xl sm:text-2xl font-extrabold text-forest tracking-tight">EcoNova</span>
+                        <span class="block text-[10px] uppercase tracking-widest font-semibold text-emerald-600">Waste Management</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8 font-medium text-slateCustom">
+                    <a href="#home" class="text-forest font-semibold hover:text-emerald-600 transition">Home</a>
+                    <a href="#about" class="hover:text-emerald-600 transition">About Us</a>
+                    <a href="#services" class="hover:text-emerald-600 transition">Services</a>
+                    <a href="#materials" class="hover:text-emerald-600 transition">Materials We Buy</a>
+                    <a href="#locations" class="hover:text-emerald-600 transition">Locations</a>
+                    <a href="#compliance" class="hover:text-emerald-600 transition">Compliance</a>
+                    <a href="#contact" class="hover:text-emerald-600 transition">Contact</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="#request-pickup" class="bg-forest hover:bg-forest-light text-white font-medium px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition flex items-center gap-2 text-sm">
+                        <i class="fa-solid fa-truck-ramp-box"></i> Request Pickup
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-slateCustom hover:text-forest p-2 rounded-lg focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 shadow-lg">
+            <a href="#home" class="block py-2 text-forest font-semibold border-b border-slate-100">Home</a>
+            <a href="#about" class="block py-2 text-slateCustom hover:text-forest border-b border-slate-100">About Us</a>
+            <a href="#services" class="block py-2 text-slateCustom hover:text-forest border-b border-slate-100">Services</a>
+            <a href="#materials" class="block py-2 text-slateCustom hover:text-forest border-b border-slate-100">Materials We Buy</a>
+            <a href="#locations" class="block py-2 text-slateCustom hover:text-forest border-b border-slate-100">Locations</a>
+            <a href="#compliance" class="block py-2 text-slateCustom hover:text-forest border-b border-slate-100">Compliance</a>
+            <a href="#contact" class="block py-2 text-slateCustom hover:text-forest border-b border-slate-100">Contact</a>
+            <div class="pt-2">
+                <a href="#request-pickup" class="block text-center bg-forest text-white py-3 rounded-lg font-medium shadow-sm">
+                    <i class="fa-solid fa-truck-ramp-box mr-2"></i> Request Pickup
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-forest-dark via-forest to-emerald-800 text-white py-20 lg:py-28 overflow-hidden">
+        <!-- Subtle Background Pattern Overlay -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#10B981_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-emerald-900/60 border border-emerald-500/30 px-3.5 py-1.5 rounded-full text-emerald-300 text-xs sm:text-sm font-semibold tracking-wide uppercase backdrop-blur-sm">
+                        <i class="fa-solid fa-leaf text-emerald-400"></i> Professional Waste Management & Recycling
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight">
+                        A Cleaner Ghana, <span class="text-emerald-400">A Greener Future.</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-200 font-normal max-w-2xl leading-relaxed">
+                        At EcoNova Waste Management, we transform waste into valuable resources through responsible waste collection, recycling and environmental management across Ghana.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#request-pickup" class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2">
+                            <i class="fa-solid fa-truck-fast"></i> Request Waste Collection
+                        </a>
+                        <a href="#materials" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-6 py-3.5 rounded-xl backdrop-blur-sm transition flex items-center gap-2">
+                            <i class="fa-solid fa-box-open"></i> Sell Your Recyclables
+                        </a>
+                        <a href="#contact" class="bg-transparent hover:bg-white/10 text-white font-medium px-6 py-3.5 rounded-xl transition flex items-center gap-2">
+                            <i class="fa-solid fa-handshake"></i> Partner With Us
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
+                        <div class="absolute -top-4 -right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wider">
+                            Verified Network
+                        </div>
+                        <h3 class="text-xl font-bold font-heading mb-4 text-white">Quick Pickup Request</h3>
+                        <form id="hero-quick-form" class="space-y-4" onsubmit="handleQuickPickup(event)">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-emerald-200 mb-1">Your Name / Organisation</label>
+                                <input type="text" id="quick-name" required placeholder="e.g. University of Ghana / John Doe" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-slate-300 text-sm focus:outline-none focus:border-emerald-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-emerald-200 mb-1">Phone Number</label>
+                                <input type="tel" id="quick-phone" required placeholder="+233 24 XXX XXXX" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2.5 text-white placeholder-slate-300 text-sm focus:outline-none focus:border-emerald-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-emerald-200 mb-1">Material Type</label>
+                                <select id="quick-material" class="w-full bg-slate-900 border border-white/20 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-emerald-400">
+                                    <option class="bg-slate-800" value="Waste Paper & Books">Waste Paper & Books</option>
+                                    <option class="bg-slate-800" value="Cartons & Cardboard">Cartons & Cardboard</option>
+                                    <option class="bg-slate-800" value="Plastics & Nylon">Plastics & Nylon</option>
+                                    <option class="bg-slate-800" value="Scrap Metals">Scrap Metals</option>
+                                    <option class="bg-slate-800" value="Commercial / Industrial Waste">Commercial / Industrial Waste</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-3 rounded-lg shadow transition flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i> Send Request via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Highlights Bar -->
+    <section class="bg-white border-b border-slate-200 py-8 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4 border-r last:border-r-0 border-slate-100">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-forest font-heading">10+</div>
+                    <div class="text-sm font-medium text-slate-500 mt-1">Regions Covered in Ghana</div>
+                </div>
+                <div class="p-4 border-r last:border-r-0 border-slate-100">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 font-heading">100%</div>
+                    <div class="text-sm font-medium text-slate-500 mt-1">Reliable Recovery</div>
+                </div>
+                <div class="p-4 border-r last:border-r-0 border-slate-100">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-forest font-heading">500+</div>
+                    <div class="text-sm font-medium text-slate-500 mt-1">Institutional Partners</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 font-heading">24/7</div>
+                    <div class="text-sm font-medium text-slate-500 mt-1">Professional Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us & Core Vision / Mission / Values -->
+    <section id="about" class="py-20 bg-slateCustom-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center mb-16">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-emerald-pale px-3 py-1 rounded-md text-forest text-xs font-bold uppercase tracking-wider">
+                        About EcoNova
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading text-forest">
+                        Recovering Resources, Creating Value & Building a Sustainable Future
+                    </h2>
+                    <p class="text-slateCustom leading-relaxed">
+                        EcoNova Waste Management Company is a Ghanaian waste management and recycling enterprise committed to promoting environmental sustainability through responsible waste collection, recycling and resource recovery.
+                    </p>
+                    <p class="text-slateCustom leading-relaxed">
+                        We work with schools, universities, bookshops, offices, hospitals, commercial establishments, and manufacturing companies to ensure that recyclable waste is properly recovered and redirected into productive use.
+                    </p>
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-emerald-600 text-xl mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-forest">Institutional Partners</h4>
+                                <p class="text-xs text-slate-500 mt-1">Colleges, banks, printing presses & corporate offices.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-emerald-600 text-xl mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4 class="font-bold text-forest">Nationwide Network</h4>
+                                <p class="text-xs text-slate-500 mt-1">Supervisors & collection agents across regions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="bg-forest-dark text-white rounded-2xl p-8 shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl text-emerald-400">
+                            <i class="fa-solid fa-earth-africa"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-emerald-400 mb-4">Our Core Divisions</h3>
+                        <p class="text-slate-300 text-sm mb-6">We don't just collect waste. Our business model is structured into four robust operational divisions:</p>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                                <h4 class="font-bold text-white flex items-center gap-2"><i class="fa-solid fa-truck text-emerald-400"></i> 1. Waste Collection</h4>
+                                <p class="text-xs text-slate-300 mt-1">Collecting recyclable materials efficiently from institutions and individuals.</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                                <h4 class="font-bold text-white flex items-center gap-2"><i class="fa-solid fa-arrows-split-up-and-left text-emerald-400"></i> 2. Recycling & Recovery</h4>
+                                <p class="text-xs text-slate-300 mt-1">Sorting, weighing, and preparing recovered materials for recycling.</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                                <h4 class="font-bold text-white flex items-center gap-2"><i class="fa-solid fa-handshake-angle text-emerald-400"></i> 3. Commercial Partnerships</h4>
+                                <p class="text-xs text-slate-300 mt-1">Establishing mutually beneficial agreements with schools, companies and institutions.</p>
+                            </div>
+                            <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                                <h4 class="font-bold text-white flex items-center gap-2"><i class="fa-solid fa-industry text-emerald-400"></i> 4. Recycling Material Supply</h4>
+                                <p class="text-xs text-slate-300 mt-1">Supplying verified recovered materials to tissue and manufacturing companies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vision, Mission & Values -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-emerald-pale text-forest rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-heading text-forest mb-3">Our Vision</h3>
+                    <p class="text-slateCustom leading-relaxed">
+                        To become one of Ghana's leading waste management and recycling companies, recognised for innovation, environmental responsibility and excellence in transforming waste into valuable resources.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 bg-emerald-pale text-forest rounded-xl flex items-center justify-center text-xl mb-4 font-bold">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-heading text-forest mb-3">Our Mission</h3>
+                    <p class="text-slateCustom leading-relaxed">
+                        To provide reliable and sustainable waste collection and recycling solutions by recovering recyclable materials, building strategic partnerships and promoting responsible environmental practices.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="bg-white p-8 sm:p-12 rounded-2xl border border-slate-200 shadow-sm">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h3 class="text-2xl sm:text-3xl font-bold font-heading text-forest">Our Core Values</h3>
+                    <p class="text-slate-500 text-sm mt-2">The guiding principles behind our professional operations.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                        <div class="text-emerald-600 text-lg mb-2"><i class="fa-solid fa-seedling"></i></div>
+                        <h4 class="font-bold text-forest text-lg">1. Environmental Responsibility</h4>
+                        <p class="text-xs text-slate-600 mt-1">We are firmly committed to protecting the environment and reducing pollution.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                        <div class="text-emerald-600 text-lg mb-2"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h4 class="font-bold text-forest text-lg">2. Integrity</h4>
+                        <p class="text-xs text-slate-600 mt-1">We conduct our business with utmost honesty, transparency, and fairness.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                        <div class="text-emerald-600 text-lg mb-2"><i class="fa-solid fa-clock"></i></div>
+                        <h4 class="font-bold text-forest text-lg">3. Reliability</h4>
+                        <p class="text-xs text-slate-600 mt-1">We strive to provide dependable collection schedules and recycling services.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                        <div class="text-emerald-600 text-lg mb-2"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h4 class="font-bold text-forest text-lg">4. Innovation</h4>
+                        <p class="text-xs text-slate-600 mt-1">We continuously seek better, smarter ways to manage and recover waste.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                        <div class="text-emerald-600 text-lg mb-2"><i class="fa-solid fa-users"></i></div>
+                        <h4 class="font-bold text-forest text-lg">5. Partnership</h4>
+                        <p class="text-xs text-slate-600 mt-1">We believe collaboration with institutions is essential for sustainable solutions.</p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-100">
+                        <div class="text-emerald-600 text-lg mb-2"><i class="fa-solid fa-award"></i></div>
+                        <h4 class="font-bold text-forest text-lg">6. Excellence</h4>
+                        <p class="text-xs text-slate-600 mt-1">We aim to maintain high professional standards across all our operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section id="services" class="py-20 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 bg-emerald-pale px-3 py-1 rounded-md text-forest text-xs font-bold uppercase tracking-wider mb-3">
+                    What We Offer
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-forest">Comprehensive Waste & Recycling Services</h2>
+                <p class="text-slate-500 mt-3">Tailored collection, recovery, and environmental management solutions for institutions, businesses, and individuals.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Waste Paper Collection</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Collection and purchasing of waste papers from schools, offices, printing presses, and institutions.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Old Books Recycling</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Collection of old textbooks, exercise books, notebooks, novels, and magazines for safe resource recovery.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Cardboard Recycling</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Collection of waste cartons, packaging materials, and heavy-duty cardboards from commercial centers.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-bottle-water"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Plastic Waste Collection</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Collection and recovery of recyclable plastic bottles and materials to prevent environmental pollution.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Nylon Waste Collection</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Purchasing and collection of recyclable nylon materials from industrial and retail distributors.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Scrap Metal Collection</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Collection and recovery of recyclable metals, iron scraps, and industrial metal offcuts.</p>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Commercial Waste Management</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Customised waste collection solutions for retail malls, banks, hospitals, and corporate offices.</p>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Industrial Waste Collection</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Collection and recovery of suitable recyclable industrial waste for manufacturing facilities and warehouses.</p>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition group">
+                    <div class="w-14 h-14 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading text-forest mb-3">Recycling Material Supply</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">Supplying verified recovered recyclable materials directly to recycling plants and tissue manufacturing companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials We Buy Section -->
+    <section id="materials" class="py-20 bg-slateCustom-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-emerald-pale px-3 py-1 rounded-md text-forest text-xs font-bold uppercase tracking-wider">
+                        Monetize Your Recyclables
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold font-heading text-forest">Materials We Buy & Collect</h2>
+                    <p class="text-slateCustom leading-relaxed">
+                        Got accumulated recyclable materials at your school, office, warehouse, or home? EcoNova offers competitive purchasing arrangements and reliable pickups.
+                    </p>
+                    <ul class="space-y-3 text-sm text-slateCustom">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Old textbooks, exercise books, notebooks</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Newspapers, magazines & office printer paper</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Used cartons, packaging cartons & cardboard boxes</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Plastic bottles & recyclable nylon materials</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-600 font-bold"></i> Scrap metals, iron and manufacturing offcuts</li>
+                    </ul>
+                    <div>
+                        <a href="#request-pickup" class="inline-flex items-center gap-2 bg-forest hover:bg-forest-light text-white font-semibold px-6 py-3 rounded-xl shadow transition">
+                            <i class="fa-solid fa-coins"></i> Sell Your Waste Now
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-pale text-forest rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-forest">Waste Books & Paper</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Bulk collection from schools & bookshops.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-pale text-forest rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-box-archive"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-forest">Cartons & Cardboard</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Supermarkets, warehouses & offices.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-pale text-forest rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-bottle-droplet"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-forest">Plastics & Nylon</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Plastic bottles & industrial nylon.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-4">
+                        <div class="w-12 h-12 bg-emerald-pale text-forest rounded-xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-forest">Scrap Metals</h4>
+                            <p class="text-xs text-slate-500 mt-0.5">Iron, steel & commercial scrap.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Request for Pickup Form Section -->
+    <section id="request-pickup" class="py-20 bg-forest text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <div class="inline-flex items-center gap-2 bg-emerald-900/60 border border-emerald-500/30 px-3 py-1 rounded-md text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
+                    Direct Scheduling
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading">Request Waste Collection</h2>
+                <p class="text-slate-300 text-sm mt-3">Fill out the form below to schedule a pickup or sell your recyclables directly to EcoNova. You can also submit instantly via WhatsApp.</p>
+            </div>
+
+            <div class="bg-white text-slateCustom rounded-2xl p-8 sm:p-10 shadow-2xl">
+                <form id="pickup-form" onsubmit="handleMainPickup(event)" class="space-y-6">
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Full Name / Organisation Name *</label>
+                            <input type="text" id="req-name" required placeholder="e.g. Achimota School / Jane Doe" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Phone Number *</label>
+                            <input type="tel" id="req-phone" required placeholder="+233 59 616 5624" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Email Address</label>
+                            <input type="email" id="req-email" placeholder="example@domain.com" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Region & Town / Location *</label>
+                            <select id="req-region" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                                <option value="">Select Region</option>
+                                <option value="Greater Accra Region (Accra New Town & Environs)">Greater Accra Region</option>
+                                <option value="Ashanti Region (Kumasi & Environs)">Ashanti Region</option>
+                                <option value="Central Region (Cape Coast & Environs)">Central Region</option>
+                                <option value="Eastern Region (Koforidua & Environs)">Eastern Region</option>
+                                <option value="Volta Region (Ho & Environs)">Volta Region</option>
+                                <option value="Bono Region (Sunyani & Environs)">Bono Region</option>
+                                <option value="Bono East Region (Techiman & Environs)">Bono East Region</option>
+                                <option value="Western Region (Takoradi & Environs)">Western Region</option>
+                                <option value="Northern Region (Tamale & Environs)">Northern Region</option>
+                                <option value="Other Regions Across Ghana">Other Regions Across Ghana</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Type of Recyclable Materials *</label>
+                            <select id="req-material-type" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                                <option value="Waste Paper & Old Books">Waste Paper & Old Books</option>
+                                <option value="Cardboard & Cartons">Cardboard & Cartons</option>
+                                <option value="Plastic Waste & Bottles">Plastic Waste & Bottles</option>
+                                <option value="Nylon Waste Materials">Nylon Waste Materials</option>
+                                <option value="Scrap Metals & Iron">Scrap Metals & Iron</option>
+                                <option value="Commercial / Industrial Waste">Commercial / Industrial Waste</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Estimated Quantity</label>
+                            <input type="text" id="req-qty" placeholder="e.g. 5 bags, 20 cartons, 500kg" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                        </div>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Preferred Collection Date</label>
+                            <input type="date" id="req-date" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-600 mb-2">Additional Information / Notes</label>
+                            <input type="text" id="req-notes" placeholder="Specific pick up instructions..." class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-forest">
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <button type="button" onclick="sendViaWhatsApp()" class="flex-1 bg-forest hover:bg-forest-dark text-white font-semibold py-4 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl text-emerald-400"></i> Send Directly via WhatsApp (+233596165624)
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Area / Locations Section -->
+    <section id="locations" class="py-20 bg-slateCustom-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 bg-emerald-pale px-3 py-1 rounded-md text-forest text-xs font-bold uppercase tracking-wider mb-3">
+                    Operational Footprint
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-forest">Headquarters & Service Coverage</h2>
+                <p class="text-slate-500 mt-3">Operating from Accra with an expanding network of regional supervisors and collection agents across Ghana.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center mb-12">
+                <div class="lg:col-span-5 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+                    <div class="w-12 h-12 bg-forest text-emerald-light rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-building-shield"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold font-heading text-forest">Operational Headquarters</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        <strong>EcoNova Waste Management Company</strong><br>
+                        No. 32 Odonkor Street, Accra New Town<br>
+                        Greater Accra Region, Ghana.
+                    </p>
+                    <div class="border-t border-slate-100 pt-4 space-y-2 text-sm">
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-phone text-emerald-600"></i> +233 59 616 5624 / +233 50 087 1617</p>
+                        <p class="flex items-center gap-2"><i class="fa-solid fa-envelope text-emerald-600"></i> EcoNovaWasteManagement@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="text-xl font-bold font-heading text-forest mb-4">Proposed Nationwide Service Coverage</h3>
+                    <p class="text-xs text-slate-500 mb-6">EcoNova is actively developing regional collection networks across Ghana:</p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-3 text-sm">
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 1. Greater Accra Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 2. Ashanti Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 3. Central Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 4. Eastern Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 5. Volta Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 6. Bono Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 7. Bono East Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 8. Western Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 9. Northern Region
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-emerald-600"></i> 10. Other Regions Nationwide
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Compliance Section -->
+    <section id="compliance" class="py-20 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 bg-emerald-pale px-3 py-1 rounded-md text-forest text-xs font-bold uppercase tracking-wider mb-3">
+                    Corporate Governance
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-forest">Certifications, Registration & Compliance</h2>
+                <p class="text-slate-500 mt-3">EcoNova upholds rigorous legal, environmental, safety, and operational compliance standards.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                    <div class="text-emerald-600 text-xl mb-3"><i class="fa-solid fa-file-contract"></i></div>
+                    <h4 class="font-bold text-forest mb-1">ORC Registration</h4>
+                    <p class="text-xs text-slate-500">Official Office of the Registrar of Companies incorporation compliance.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                    <div class="text-emerald-600 text-xl mb-3"><i class="fa-solid fa-receipt"></i></div>
+                    <h4 class="font-bold text-forest mb-1">GRA Tax Compliance</h4>
+                    <p class="text-xs text-slate-500">Ghana Revenue Authority tax identification and regulatory standing.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                    <div class="text-emerald-600 text-xl mb-3"><i class="fa-solid fa-leaf"></i></div>
+                    <h4 class="font-bold text-forest mb-1">EPA Environmental Permit</h4>
+                    <p class="text-xs text-slate-500">Environmental Protection Agency authorisation for waste recovery operations.</p>
+                </div>
+                <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                    <div class="text-emerald-600 text-xl mb-3"><i class="fa-solid fa-shield-heart"></i></div>
+                    <h4 class="font-bold text-forest mb-1">Health & Safety Standards</h4>
+                    <p class="text-xs text-slate-500">Strict workplace safety protocols for collection agents and sorting personnel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section -->
+    <footer id="contact" class="bg-forest-dark text-white pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1 -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white">
+                            <i class="fa-solid fa-recycle text-xl"></i>
+                        </div>
+                        <span class="brand-title text-xl font-bold text-white">EcoNova</span>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        We don't just collect waste. We recover resources, create value, and build a sustainable future for Ghana and beyond.
+                    </p>
+                    <div class="text-xs text-emerald-400 font-semibold">
+                        CEO: Mr. Raymond O. Japhet
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="space-y-3">
+                    <h4 class="font-bold font-heading text-emerald-400">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition">Our Services</a></li>
+                        <li><a href="#materials" class="hover:text-white transition">Materials We Buy</a></li>
+                        <li><a href="#locations" class="hover:text-white transition">Locations & Coverage</a></li>
+                        <li><a href="#request-pickup" class="hover:text-white transition">Request Pickup</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="space-y-3">
+                    <h4 class="font-bold font-heading text-emerald-400">Contact Details</h4>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-location-dot text-emerald-400 mt-1"></i> No. 32 Odonkor Street, Accra New Town, Ghana</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-emerald-400"></i> +233 59 616 5624</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-emerald-400"></i> +233 50 087 1617</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-emerald-400"></i> EcoNovaWasteManagement@gmail.com</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 -->
+                <div class="space-y-3">
+                    <h4 class="font-bold font-heading text-emerald-400">Connect With Us</h4>
+                    <p class="text-xs text-slate-300">Follow our official channels for updates on recycling and environmental sustainability.</p>
+                    <div class="flex gap-3 pt-2">
+                        <a href="#" class="w-10 h-10 bg-white/10 hover:bg-emerald-600 rounded-lg flex items-center justify-center text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 hover:bg-emerald-600 rounded-lg flex items-center justify-center text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 hover:bg-emerald-600 rounded-lg flex items-center justify-center text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/233596165624" target="_blank" class="w-10 h-10 bg-white/10 hover:bg-emerald-600 rounded-lg flex items-center justify-center text-white transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 text-center text-xs text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 EcoNova Waste Management Company. All rights reserved.</p>
+                <p class="text-emerald-400">Professional Waste Management, Recycling and Environmental Sustainability</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for Success Messages -->
+    <div id="success-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl text-center space-y-4">
+            <div class="w-16 h-16 bg-emerald-pale text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold font-heading text-forest">Request Received!</h3>
+            <p id="modal-msg" class="text-sm text-slate-600">Thank you for contacting EcoNova Waste Management. Our team will get in touch with you shortly.</p>
+            <button onclick="closeModal()" class="w-full bg-forest hover:bg-forest-light text-white font-semibold py-3 rounded-xl transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Quick Form Submission
+        function handleQuickPickup(event) {
+            event.preventDefault();
+            const name = document.getElementById('quick-name').value;
+            const phone = document.getElementById('quick-phone').value;
+            const material = document.getElementById('quick-material').value;
+
+            const text = `Hello EcoNova Waste Management,\n\nI would like to request a pickup.\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Material:* ${material}`;
+            const url = `https://wa.me/233596165624?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Main Pickup Form Submission
+        function handleMainPickup(event) {
+            event.preventDefault();
+            const name = document.getElementById('req-name').value;
+            const phone = document.getElementById('req-phone').value;
+            const email = document.getElementById('req-email').value;
+            const region = document.getElementById('req-region').value;
+            const materialType = document.getElementById('req-material-type').value;
+            const qty = document.getElementById('req-qty').value;
+            const date = document.getElementById('req-date').value;
+            const notes = document.getElementById('req-notes').value;
+
+            const modal = document.getElementById('success-modal');
+            const msg = document.getElementById('modal-msg');
+            msg.innerHTML = `Thank you, <strong>${name}</strong>. Your request for <strong>${materialType}</strong> in <strong>${region}</strong> has been successfully submitted. Our collection supervisor will contact you at <strong>${phone}</strong>.`;
+            modal.classList.remove('hidden');
+
+            document.getElementById('pickup-form').reset();
+        }
+
+        // WhatsApp direct submission from main form
+        function sendViaWhatsApp() {
+            const name = document.getElementById('req-name').value || 'Not Provided';
+            const phone = document.getElementById('req-phone').value || 'Not Provided';
+            const email = document.getElementById('req-email').value || 'Not Provided';
+            const region = document.getElementById('req-region').value || 'Not Provided';
+            const materialType = document.getElementById('req-material-type').value || 'Not Provided';
+            const qty = document.getElementById('req-qty').value || 'Not Provided';
+            const date = document.getElementById('req-date').value || 'Not Provided';
+            const notes = document.getElementById('req-notes').value || 'None';
+
+            if (!document.getElementById('req-name').value || !document.getElementById('req-phone').value || !document.getElementById('req-region').value) {
+                alert('Please fill in at least Name, Phone and Region before sending via WhatsApp.');
+                return;
+            }
+
+            const text = `Hello EcoNova Waste Management,\n\nNew Collection Request:\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Email:* ${email}\n*Region/Location:* ${region}\n*Material:* ${materialType}\n*Quantity:* ${qty}\n*Preferred Date:* ${date}\n*Notes:* ${notes}`;
+            const url = `https://wa.me/233596165624?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
